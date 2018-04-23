@@ -179,10 +179,10 @@ public class home extends javax.swing.JFrame {
     }*/
     
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        quiz takequiz = new quiz(jFrame1, false);
-        takequiz.setLocationRelativeTo(null);
-        takequiz.setVisible(true);
-        dispose();
+        schoolInput school = new schoolInput();
+        school.setLocationRelativeTo(null);
+        school.show(); 
+        this.dispose();
         //int visitorID = visitorID();
         //assignVisitorID(visitorID);
         //System.out.println("You are visitor "+ visitorID);

@@ -16,16 +16,20 @@ import java.util.Scanner;
 import java.awt.event.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.nio.file.*;;
 
 /**
  *
  * @author mneeraalbaoud
  * @author valeria
+ * @author brendan
  */
 public class quiz extends javax.swing.JDialog {
 
@@ -40,10 +44,18 @@ public class quiz extends javax.swing.JDialog {
         QList=new ArrayList <>();
         List<String> Q;
         ArrayList<String> correctans = new ArrayList<>();
+        BufferedReader br = null;
+        FileReader chooseTopic = null;
+        String line = null;
+        String chosenTopic = "src/quiz/compsci.csv";
+        
+        
         
         try {
- 
-            Scanner Sscanner = new Scanner(new File("src/quiz/questionbank.csv"));
+            Scanner tscanner = new Scanner( new File("src/quiz/chosentopic.txt") );
+            chosenTopic = tscanner.useDelimiter("\\A").next();
+            
+            Scanner Sscanner = new Scanner(new File(chosenTopic));
             Sscanner.useDelimiter(",");
             String[] f = Sscanner.nextLine().split(",");
             

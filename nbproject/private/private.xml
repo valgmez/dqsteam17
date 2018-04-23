@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Valeria/Desktop/compsci/dqs/quiz/src/quiz/questionbank.csv</file>
-            <file>file:/C:/Users/Valeria/Desktop/compsci/dqs/quiz/src/quiz/quiz.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/selectQuestions.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/login.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/quiz.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/editQuestions.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/questionBuilder.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/engagementTeam.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/schoolInput.java</file>
+            <file>file:/C:/Users/tasty_000/Documents/CompSci/DQS%20project/src/quiz/home.java</file>
         </group>
     </open-files>
 </project-private>
