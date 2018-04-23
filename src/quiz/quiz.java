@@ -14,6 +14,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.awt.event.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -71,7 +77,9 @@ public class quiz extends javax.swing.JDialog {
         catch ( NoSuchElementException ex ) {
             System.out.println( "File not1 found!" );
         }
+        
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,7 +100,6 @@ public class quiz extends javax.swing.JDialog {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jButton4 = new javax.swing.JButton();
-        
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Next");
@@ -233,13 +240,14 @@ public class quiz extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton3ActionPerformed
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {                                      
         home back = new home();
+        
         back.setLocationRelativeTo(null);
         back.setVisible(true);
         //back.setAlwaysOnTop(true);
         //quiz takequiz = new quiz(Frame, false);
         dispose();
     } 
-    public void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    public int jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         if(buttonGroup1.getSelection()==null){
             An.add("NA");
@@ -250,10 +258,10 @@ public class quiz extends javax.swing.JDialog {
             if (buttonGroup1.getSelection().getActionCommand().equals(QList.get(An.size()-1).get(5))){
                 JOptionPane.showMessageDialog(null, String.format("<html><center>Correct!</center></html>"), null, JOptionPane.PLAIN_MESSAGE);
                 score = score + 1;
+                //return score;
             } else {
                 JOptionPane.showMessageDialog(null, String.format("<html><center> Wrong answer :( <br>%s</center></html>", (QList.get(An.size()-1).get(6))), null, JOptionPane.ERROR_MESSAGE);
             }
-           
         }
         
         if(An.size()<QList.size()){
@@ -276,12 +284,36 @@ public class quiz extends javax.swing.JDialog {
             jRadioButton2.setVisible(false);
             jRadioButton3.setVisible(false);
             jRadioButton4.setVisible(false);
-            
-            //JOptionPane.showMessageDialog(null, "You got " + score + " questions right.");
+            statsList.add(1);
+            statsList.add(",");
+            statsList.add(score);
+            statsList.add(",");
+            statsList.add(An);
+            writeStats();
         }
+        return score;
     }//GEN-LAST:event_jButton1MouseClicked
+ 
+    public void writeStats() {
+        
+        try { 
+            FileWriter fwrite = new FileWriter("src/quiz/statistics.csv", true);
+            PrintWriter stats = new PrintWriter(fwrite);
+            for (Object a : statsList) {
+                stats.print(a);
+            }
+            stats.println();
+            stats.close();
+            
+        }
+       
+        catch (IOException ex) {
+            Logger.getLogger(quiz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
-    public static void main(String args[]) {
+    
+    public static void main(String args[]) throws IOException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -304,7 +336,7 @@ public class quiz extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(quiz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -320,12 +352,14 @@ public class quiz extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+
     }
 
     ArrayList <List<String>> QList;
     ArrayList<String> An=new ArrayList<>();
     ArrayList<String> CorrectAns = new ArrayList<>();
-    Integer score = 0;
+    ArrayList<Object> statsList = new ArrayList<>();
+    public int score;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;

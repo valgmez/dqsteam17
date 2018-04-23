@@ -1,0 +1,11 @@
+visitorID,score,1,2,3,4,5,6,7,8,9,10
+1,4,[C, B, C, C, D, B, C, D, B, A]
+1,5,[A, D, B, A, B, C, C, A, C, C]
+1,4,[A, D, C, A, B, A, A, D, A, C]
+1,5,[C, B, C, A, B, NA, NA, NA, NA, A]
+1,0,[A, NA, NA, NA, NA, NA, NA, NA, NA, NA]
+1,0,[A, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA]
+1,3,[C, B, D, NA, NA, NA, NA, NA, A, A]
+1,0,[A, NA, NA, NA, NA, NA, NA, NA, NA, NA]
+1,8,[A, B, B, A, B, C, B, D, C, A]
+1,2,[C, D, A, NA, NA, NA, NA, NA, NA, A]

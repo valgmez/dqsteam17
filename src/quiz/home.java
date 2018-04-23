@@ -7,6 +7,11 @@ package quiz;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 /**
  *
@@ -14,9 +19,8 @@ import java.awt.*;
  */
 public class home extends javax.swing.JFrame {
 
-    /**
-     * Creates new form home
-     */
+    //int visitorID = 0;
+    
     public home() {
         
         initComponents();
@@ -143,12 +147,46 @@ public class home extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    /*public int visitorID() {
+        try {
+            if ( !new File("src/quiz/statistics.csv").exists())
+                return 1;
+            else {
+                BufferedReader br = new BufferedReader(new FileReader(new File("src/quiz/statistics.csv")));
+                String s = br.readLine();
+                visitorID = Integer.parseInt(s);
+                br.close();
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return visitorID;
+    }
+    
+    public void assignVisitorID(int visitorID){
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(new File("src/quiz/statistics.csv")));
+            bw.write(Integer.toString(visitorID));   
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    } 
+    
+    /*public int visitorID() {
+        int visitorID = 0;
+        visitorID++;
+        return visitorID;
+    }*/
+    
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         quiz takequiz = new quiz(jFrame1, false);
         takequiz.setLocationRelativeTo(null);
         takequiz.setVisible(true);
         dispose();
+        //int visitorID = visitorID();
+        //assignVisitorID(visitorID);
+        //System.out.println("You are visitor "+ visitorID);
+
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
@@ -158,9 +196,7 @@ public class home extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -195,10 +231,11 @@ public class home extends javax.swing.JFrame {
                         System.exit(0);
                     }
                 });
-                    new home().setVisible(true);
-
+                new home().setVisible(true);
             }
         });
+    
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
